@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Corporate Elite Box - Beyond Boxes</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../product-detail.css">
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <a href="../index.html" class="back-btn"><i class="fas fa-arrow-left"></i> Back to Home</a>
+            <h1>Corporate Elite Box</h1>
+            <p>Professional gifting solutions for business</p>
+        </div>
+    </header>
+
+    <div class="container product-detail">
+        <div class="product-gallery">
+            <div class="main-image">
+                <img src="../images/corporate-box.jpg" alt="Corporate Elite Box">
+            </div>
+            <div class="thumbnail-gallery">
+                <img src="../images/corporate-1.jpg" alt="Corporate Box Detail 1" onclick="changeImage(this)">
+                <img src="../images/corporate-2.jpg" alt="Corporate Box Detail 2" onclick="changeImage(this)">
+                <img src="../images/corporate-3.jpg" alt="Corporate Box Detail 3" onclick="changeImage(this)">
+            </div>
+        </div>
+
+        <div class="product-info">
+            <div class="price-tag">₹1,799</div>
+            <div class="product-description">
+                <h2>Description</h2>
+                <p>The Corporate Elite Box is designed for professional gifting needs. Perfect for clients, employees, or business partners, featuring premium professional accessories and items.</p>
+                
+                <h3>What's Inside</h3>
+                <ul class="product-features-list">
+                    <li><i class="fas fa-briefcase"></i> Premium Business Accessories</li>
+                    <li><i class="fas fa-pen"></i> Professional Stationery</li>
+                    <li><i class="fas fa-laptop"></i> Tech Accessories</li>
+                    <li><i class="fas fa-coffee"></i> Premium Refreshments</li>
+                    <li><i class="fas fa-award"></i> Custom Business Card Holder</li>
+                </ul>
+
+                <h3>Additional Information</h3>
+                <div class="product-specs">
+                    <div class="spec-item">
+                        <i class="fas fa-box"></i>
+                        <span>Box Size</span>
+                        <p>35cm x 25cm x 15cm</p>
+                    </div>
+                    <div class="spec-item">
+                        <i class="fas fa-users"></i>
+                        <span>Bulk Orders</span>
+                        <p>Available</p>
+                    </div>
+                    <div class="spec-item">
+                        <i class="fas fa-building"></i>
+                        <span>Branding</span>
+                        <p>Customizable</p>
+                    </div>
+                </div>
+            </div>
+
+            <button class="order-btn" data-product="Corporate Elite Box">
+                <i class="fas fa-shopping-cart"></i> Order Now - ₹1,799
+            </button>
+        </div>
+    </div>
+
+    <script src="../script.js"></script>
+</body>
+</html>
