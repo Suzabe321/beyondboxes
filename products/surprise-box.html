@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Surprise Luxury Box - Beyond Boxes</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../product-detail.css">
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <a href="../index.html" class="back-btn"><i class="fas fa-arrow-left"></i> Back to Home</a>
+            <h1>Surprise Luxury Box</h1>
+            <p>Experience the joy of mystery</p>
+        </div>
+    </header>
+
+    <div class="container product-detail">
+        <div class="product-gallery">
+            <div class="main-image">
+                <img src="../images/surprise-box.jpg" alt="Surprise Luxury Box">
+            </div>
+            <div class="thumbnail-gallery">
+                <img src="../images/surprise-1.jpg" alt="Surprise Box Detail 1" onclick="changeImage(this)">
+                <img src="../images/surprise-2.jpg" alt="Surprise Box Detail 2" onclick="changeImage(this)">
+                <img src="../images/surprise-3.jpg" alt="Surprise Box Detail 3" onclick="changeImage(this)">
+            </div>
+        </div>
+
+        <div class="product-info">
+            <div class="price-tag">₹1,299</div>
+            <div class="product-description">
+                <h2>Description</h2>
+                <p>Our Surprise Luxury Box is filled with carefully selected premium items that will delight and amaze. Each box is uniquely curated to create an exciting unboxing experience.</p>
+                
+                <h3>Mystery Contents</h3>
+                <ul class="product-features-list">
+                    <li><i class="fas fa-star"></i> Premium Surprises</li>
+                    <li><i class="fas fa-gift"></i> Luxury Items</li>
+                    <li><i class="fas fa-gem"></i> Special Accessories</li>
+                    <li><i class="fas fa-heart"></i> Personalized Touch</li>
+                    <li><i class="fas fa-magic"></i> Seasonal Specials</li>
+                </ul>
+
+                <h3>Box Categories</h3>
+                <div class="category-grid">
+                    <div class="category-item">
+                        <i class="fas fa-female"></i>
+                        <span>For Her</span>
+                    </div>
+                    <div class="category-item">
+                        <i class="fas fa-male"></i>
+                        <span>For Him</span>
+                    </div>
+                    <div class="category-item">
+                        <i class="fas fa-users"></i>
+                        <span>Couples</span>
+                    </div>
+                </div>
+
+                <h3>Additional Information</h3>
+                <div class="product-specs">
+                    <div class="spec-item">
+                        <i class="fas fa-box"></i>
+                        <span>Box Size</span>
+                        <p>30cm x 20cm x 15cm</p>
+                    </div>
+                    <div class="spec-item">
+                        <i class="fas fa-clock"></i>
+                        <span>Delivery Time</span>
+                        <p>24 Hours</p>
+                    </div>
+                    <div class="spec-item">
+                        <i class="fas fa-tag"></i>
+                        <span>Value</span>
+                        <p>₹2000+</p>
+                    </div>
+                </div>
+            </div>
+
+            <button class="order-btn" data-product="Surprise Luxury Box">
+                <i class="fas fa-shopping-cart"></i> Order Now - ₹1,299
+            </button>
+        </div>
+    </div>
+
+    <script src="../script.js"></script>
+</body>
+</html>
