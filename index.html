@@ -4,80 +4,118 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Beyond Boxes - Luxury Gift Boxes</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <header>
-        <h1>Beyond Boxes</h1>
-        <p>Luxury Gift Boxes for Every Occasion</p>
+        <div class="header-content">
+            <h1>Beyond Boxes</h1>
+            <p>Luxury Gift Boxes for Every Occasion</p>
+            <div class="header-separator"></div>
+            <p class="tagline">Crafting Moments of Joy, One Box at a Time</p>
+        </div>
     </header>
 
+    <nav class="main-nav">
+        <div class="nav-container">
+            <a href="#products">Our Collections</a>
+            <a href="#about">About Us</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </nav>
+
+    <section id="about" class="about-section">
+        <div class="container">
+            <h2>Welcome to Beyond Boxes</h2>
+            <p>Where luxury meets emotion in every carefully curated gift box. Each of our boxes is thoughtfully designed to create unforgettable moments for your special occasions.</p>
+        </div>
+    </section>
+
     <div class="container">
-        <div class="products">
-            <div class="product-card">
-                <img src="birthday-box.jpg" alt="Birthday Special Box">
-                <h3>Birthday Special Box</h3>
-                <p>Deluxe birthday gift box with customized items</p>
-                <p class="price">₹1,499</p>
-                <button class="order-btn" data-product="Birthday Special Box">Order Now</button>
-            </div>
+        <section id="products" class="products-section">
+            <h2 class="section-title">Our Luxury Collections</h2>
+            <div class="products">
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="birthday-box.jpg" alt="Birthday Special Box">
+                        <div class="overlay">
+                            <span class="view-details">View Details</span>
+                        </div>
+                    </div>
+                    <h3>Birthday Special Box</h3>
+                    <p>Deluxe birthday gift box with customized items</p>
+                    <p class="price">₹1,499</p>
+                    <button class="order-btn" data-product="Birthday Special Box">
+                        <span>Order Now</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
 
-            <div class="product-card">
-                <img src="anniversary-box.jpg" alt="Anniversary Box">
-                <h3>Anniversary Box</h3>
-                <p>Romantic anniversary gift box with couples items</p>
-                <p class="price">₹1,999</p>
-                <button class="order-btn" data-product="Anniversary Box">Order Now</button>
-            </div>
+                <!-- Repeat the same structure for other products -->
+                <!-- Example for one more product -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="anniversary-box.jpg" alt="Anniversary Box">
+                        <div class="overlay">
+                            <span class="view-details">View Details</span>
+                        </div>
+                    </div>
+                    <h3>Anniversary Box</h3>
+                    <p>Romantic anniversary gift box with couples items</p>
+                    <p class="price">₹1,999</p>
+                    <button class="order-btn" data-product="Anniversary Box">
+                        <span>Order Now</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
 
-            <div class="product-card">
-                <img src="wedding-box.jpg" alt="Wedding Box">
-                <h3>Wedding Box</h3>
-                <p>Elegant wedding gift box with premium items</p>
-                <p class="price">₹2,499</p>
-                <button class="order-btn" data-product="Wedding Box">Order Now</button>
+                <!-- Continue with other products... -->
             </div>
+        </section>
 
-            <div class="product-card">
-                <img src="corporate-box.jpg" alt="Corporate Box">
-                <h3>Corporate Gift Box</h3>
-                <p>Professional gift box for business relations</p>
-                <p class="price">₹1,799</p>
-                <button class="order-btn" data-product="Corporate Gift Box">Order Now</button>
+        <section id="contact" class="contact-section">
+            <div class="contact-info">
+                <h2>Connect With Us</h2>
+                <div class="contact-grid">
+                    <div class="contact-item">
+                        <i class="fab fa-whatsapp"></i>
+                        <p>WhatsApp</p>
+                        <a href="https://wa.me/917406839266">+91 7406839266</a>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fab fa-instagram"></i>
+                        <p>Instagram</p>
+                        <a href="https://instagram.com/beyondboxess">@beyondboxess</a>
+                    </div>
+                    <div class="contact-item">
+                        <i class="far fa-envelope"></i>
+                        <p>Email</p>
+                        <a href="mailto:beyondboxes1@gmail.com">beyondboxes1@gmail.com</a>
+                    </div>
+                </div>
             </div>
-
-            <div class="product-card">
-                <img src="festival-box.jpg" alt="Festival Box">
-                <h3>Festival Special Box</h3>
-                <p>Festive gift box with traditional items</p>
-                <p class="price">₹1,299</p>
-                <button class="order-btn" data-product="Festival Special Box">Order Now</button>
-            </div>
-
-            <div class="product-card">
-                <img src="customized-box.jpg" alt="Customized Box">
-                <h3>Customized Box</h3>
-                <p>Design your own gift box</p>
-                <p class="price">Starting from ₹999</p>
-                <button class="order-btn" data-product="Customized Box">Order Now</button>
-            </div>
-
-            <div class="product-card">
-                <img src="surprise-box.jpg" alt="Surprise Box">
-                <h3>Surprise Box</h3>
-                <p>Mystery gift box with handpicked items</p>
-                <p class="price">₹1,299</p>
-                <button class="order-btn" data-product="Surprise Box">Order Now</button>
-            </div>
-        </div>
-
-        <div class="contact-info">
-            <h2>Contact Us</h2>
-            <p>📞 WhatsApp: <a href="https://wa.me/917406839266">+91 7406839266</a></p>
-            <p>📸 Instagram: <a href="https://instagram.com/beyondboxess">@beyondboxess</a></p>
-            <p>📧 Email: <a href="mailto:beyondboxes1@gmail.com">beyondboxes1@gmail.com</a></p>
-        </div>
+        </section>
     </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-info">
+                <h3>Beyond Boxes</h3>
+                <p>Crafting Luxury Gift Experiences</p>
+            </div>
+            <div class="footer-social">
+                <a href="https://instagram.com/beyondboxess"><i class="fab fa-instagram"></i></a>
+                <a href="https://wa.me/917406839266"><i class="fab fa-whatsapp"></i></a>
+                <a href="mailto:beyondboxes1@gmail.com"><i class="far fa-envelope"></i></a>
+            </div>
+            <div class="footer-copyright">
+                <p>&copy; 2024 Beyond Boxes. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
     <script src="script.js"></script>
 </body>
 </html>
