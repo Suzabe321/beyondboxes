@@ -2,30 +2,40 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Playfair Display', serif;
 }
 
 body {
+    font-family: 'Montserrat', sans-serif;
     background-color: #F8F3F1; /* Pearl White */
+    color: #4B3832; /* Deep Mocha */
 }
 
 header {
-    background-color: #4B3832; /* Deep Mocha */
-    padding: 30px;
+    background-color: #1B1F3B; /* Midnight Blue */
+    padding: 40px 20px;
     text-align: center;
-    box-shadow: 0 2px 15px rgba(0,0,0,0.2);
+    box-shadow: 0 2px 20px rgba(0,0,0,0.1);
 }
 
 header h1 {
+    font-family: 'Playfair Display', serif;
     color: #E6CBA8; /* Champagne Gold */
-    margin-bottom: 15px;
-    font-size: 2.5em;
+    font-size: 3em;
     letter-spacing: 2px;
+    margin-bottom: 15px;
+}
+
+.header-divider {
+    width: 100px;
+    height: 2px;
+    background-color: #E6CBA8; /* Champagne Gold */
+    margin: 15px auto;
 }
 
 header p {
     color: #F8F3F1; /* Pearl White */
     font-size: 1.2em;
+    font-weight: 300;
 }
 
 .container {
@@ -42,84 +52,112 @@ header p {
 }
 
 .product-card {
-    border: none;
-    padding: 20px;
-    border-radius: 12px;
-    text-align: center;
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    background-color: #F8F3F1; /* Pearl White */
-    box-shadow: 0 4px 15px rgba(75, 56, 50, 0.1);
+    box-shadow: 0 5px 15px rgba(75, 56, 50, 0.1);
 }
 
 .product-card:hover {
     transform: translateY(-10px);
-    box-shadow: 0 8px 25px rgba(75, 56, 50, 0.2);
+    box-shadow: 0 10px 25px rgba(75, 56, 50, 0.2);
 }
 
-.product-card img {
+.image-container {
+    position: relative;
+    overflow: hidden;
+    padding-top: 75%; /* 4:3 Aspect Ratio */
+}
+
+.image-container img {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
-    max-width: 250px;
-    height: auto;
-    border-radius: 8px;
-    margin-bottom: 20px;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.product-card:hover .image-container img {
+    transform: scale(1.05);
 }
 
 .product-card h3 {
+    font-family: 'Playfair Display', serif;
     color: #4B3832; /* Deep Mocha */
-    margin-bottom: 15px;
+    padding: 20px 20px 10px;
     font-size: 1.4em;
 }
 
 .product-card p {
-    color: #1B1F3B; /* Midnight Blue */
-    margin-bottom: 15px;
+    padding: 0 20px;
+    color: #666;
     line-height: 1.6;
 }
 
 .price {
-    font-weight: bold;
+    font-weight: 600;
     color: #722F37; /* Velvet Burgundy */
-    font-size: 1.3em;
-    margin: 15px 0;
+    font-size: 1.2em;
+    padding: 15px 20px;
 }
 
 .order-btn {
-    background-color: #722F37; /* Velvet Burgundy */
-    color: #F8F3F1; /* Pearl White */
-    padding: 12px 25px;
+    background-color: #3A6351; /* Muted Emerald */
+    color: white;
+    width: calc(100% - 40px);
+    margin: 10px 20px 20px;
+    padding: 12px 0;
     border: none;
-    border-radius: 6px;
+    border-radius: 5px;
     cursor: pointer;
-    transition: all 0.3s ease;
-    font-size: 1.1em;
-    text-transform: uppercase;
-    letter-spacing: 1px;
+    font-size: 1em;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
 }
 
 .order-btn:hover {
-    background-color: #3A6351; /* Muted Emerald */
-    transform: scale(1.05);
+    background-color: #722F37; /* Velvet Burgundy */
 }
 
 .contact-info {
-    text-align: center;
     margin-top: 60px;
     padding: 40px;
     background-color: #1B1F3B; /* Midnight Blue */
-    border-radius: 12px;
-    box-shadow: 0 4px 15px rgba(27, 31, 59, 0.2);
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(27, 31, 59, 0.2);
 }
 
 .contact-info h2 {
+    font-family: 'Playfair Display', serif;
     color: #E6CBA8; /* Champagne Gold */
-    margin-bottom: 25px;
     font-size: 2em;
+    margin-bottom: 10px;
 }
 
-.contact-info p {
-    margin: 15px 0;
+.contact-divider {
+    width: 80px;
+    height: 2px;
+    background-color: #E6CBA8; /* Champagne Gold */
+    margin: 20px auto;
+}
+
+.contact-links {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.contact-links p {
     color: #F8F3F1; /* Pearl White */
     font-size: 1.1em;
+}
+
+.contact-icon {
+    margin-right: 10px;
 }
 
 .contact-info a {
@@ -132,37 +170,21 @@ header p {
     color: #3A6351; /* Muted Emerald */
 }
 
-/* Custom Scrollbar */
-::-webkit-scrollbar {
-    width: 10px;
-}
-
-::-webkit-scrollbar-track {
-    background: #F8F3F1; /* Pearl White */
-}
-
-::-webkit-scrollbar-thumb {
-    background: #4B3832; /* Deep Mocha */
-    border-radius: 5px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-    background: #722F37; /* Velvet Burgundy */
-}
-
-/* Add this to your HTML head section */
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap');
-
 @media (max-width: 768px) {
+    header h1 {
+        font-size: 2.5em;
+    }
+
     .products {
         grid-template-columns: 1fr;
     }
-    
+
     .product-card {
-        margin: 10px;
+        margin: 0 10px;
     }
-    
-    header h1 {
-        font-size: 2em;
+
+    .contact-info {
+        margin: 40px 10px 0;
+        padding: 30px 20px;
     }
 }
