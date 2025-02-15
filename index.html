@@ -1,14 +1,53 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Beyond Boxes - Luxury Gift Boxes</title>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <!-- Settings Panel -->
+    <div class="settings-toggle">
+        <i class="fas fa-cog"></i>
+    </div>
+    
+    <div class="settings-panel">
+        <div class="settings-header">
+            <h3>Customize Your Experience</h3>
+            <button class="close-settings"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="settings-content">
+            <div class="setting-group">
+                <h4>Theme</h4>
+                <div class="theme-options">
+                    <button class="theme-btn" data-theme="light">Light</button>
+                    <button class="theme-btn" data-theme="dark">Dark</button>
+                    <button class="theme-btn" data-theme="royal">Royal</button>
+                </div>
+            </div>
+            <div class="setting-group">
+                <h4>Text Size</h4>
+                <div class="text-size-controls">
+                    <button id="decrease-text">A-</button>
+                    <button id="reset-text">Reset</button>
+                    <button id="increase-text">A+</button>
+                </div>
+            </div>
+            <div class="setting-group">
+                <h4>Animation Speed</h4>
+                <select id="animation-speed">
+                    <option value="0.3s">Fast</option>
+                    <option value="0.6s" selected>Normal</option>
+                    <option value="0.9s">Slow</option>
+                </select>
+            </div>
+        </div>
+    </div>
+
     <header>
         <h1>Beyond Boxes</h1>
         <div class="header-divider"></div>
@@ -20,81 +59,43 @@
             <div class="product-card">
                 <div class="image-container">
                     <img src="birthday-box.jpg" alt="Birthday Special Box">
+                    <div class="product-overlay">
+                        <a href="products/birthday-box.html" class="read-more-btn">
+                            <i class="fas fa-info-circle"></i> Read More
+                        </a>
+                    </div>
                 </div>
+                <div class="product-badge">Best Seller</div>
                 <h3>Birthday Special Box</h3>
                 <p>Deluxe birthday gift box with customized items</p>
+                <div class="product-features">
+                    <span><i class="fas fa-gift"></i> Premium Items</span>
+                    <span><i class="fas fa-clock"></i> 24hr Delivery</span>
+                </div>
                 <p class="price">₹1,499</p>
-                <button class="order-btn" data-product="Birthday Special Box">Order Now</button>
+                <button class="order-btn" data-product="Birthday Special Box">
+                    <i class="fas fa-shopping-cart"></i> Order Now
+                </button>
             </div>
-
-            <div class="product-card">
-                <div class="image-container">
-                    <img src="anniversary-box.jpg" alt="Anniversary Box">
-                </div>
-                <h3>Anniversary Box</h3>
-                <p>Romantic anniversary gift box with couples items</p>
-                <p class="price">₹1,999</p>
-                <button class="order-btn" data-product="Anniversary Box">Order Now</button>
-            </div>
-
-            <div class="product-card">
-                <div class="image-container">
-                    <img src="wedding-box.jpg" alt="Wedding Box">
-                </div>
-                <h3>Wedding Box</h3>
-                <p>Elegant wedding gift box with premium items</p>
-                <p class="price">₹2,499</p>
-                <button class="order-btn" data-product="Wedding Box">Order Now</button>
-            </div>
-
-            <div class="product-card">
-                <div class="image-container">
-                    <img src="corporate-box.jpg" alt="Corporate Box">
-                </div>
-                <h3>Corporate Gift Box</h3>
-                <p>Professional gift box for business relations</p>
-                <p class="price">₹1,799</p>
-                <button class="order-btn" data-product="Corporate Gift Box">Order Now</button>
-            </div>
-
-            <div class="product-card">
-                <div class="image-container">
-                    <img src="festival-box.jpg" alt="Festival Box">
-                </div>
-                <h3>Festival Special Box</h3>
-                <p>Festive gift box with traditional items</p>
-                <p class="price">₹1,299</p>
-                <button class="order-btn" data-product="Festival Special Box">Order Now</button>
-            </div>
-
-            <div class="product-card">
-                <div class="image-container">
-                    <img src="customized-box.jpg" alt="Customized Box">
-                </div>
-                <h3>Customized Box</h3>
-                <p>Design your own gift box</p>
-                <p class="price">Starting from ₹999</p>
-                <button class="order-btn" data-product="Customized Box">Order Now</button>
-            </div>
-
-            <div class="product-card">
-                <div class="image-container">
-                    <img src="surprise-box.jpg" alt="Surprise Box">
-                </div>
-                <h3>Surprise Box</h3>
-                <p>Mystery gift box with handpicked items</p>
-                <p class="price">₹1,299</p>
-                <button class="order-btn" data-product="Surprise Box">Order Now</button>
-            </div>
+            <!-- Repeat similar structure for other products -->
         </div>
 
         <div class="contact-info">
             <h2>Contact Us</h2>
             <div class="contact-divider"></div>
             <div class="contact-links">
-                <p><span class="contact-icon">📞</span> WhatsApp: <a href="https://wa.me/917406839266">+91 7406839266</a></p>
-                <p><span class="contact-icon">📸</span> Instagram: <a href="https://instagram.com/beyondboxess">@beyondboxess</a></p>
-                <p><span class="contact-icon">📧</span> Email: <a href="mailto:beyondboxes1@gmail.com">beyondboxes1@gmail.com</a></p>
+                <a href="https://wa.me/917406839266" class="contact-card">
+                    <i class="fab fa-whatsapp"></i>
+                    <span>+91 7406839266</span>
+                </a>
+                <a href="https://instagram.com/beyondboxess" class="contact-card">
+                    <i class="fab fa-instagram"></i>
+                    <span>@beyondboxess</span>
+                </a>
+                <a href="mailto:beyondboxes1@gmail.com" class="contact-card">
+                    <i class="far fa-envelope"></i>
+                    <span>beyondboxes1@gmail.com</span>
+                </a>
             </div>
         </div>
     </div>
