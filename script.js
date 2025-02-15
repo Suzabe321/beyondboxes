@@ -1,8 +1,36 @@
+// Constants
+const CONSTANTS = {
+    MIN_FONT_SIZE: 12,
+    MAX_FONT_SIZE: 24,
+    DEFAULT_FONT_SIZE: 16,
+    ANIMATION_DURATION: 300,
+    TOAST_DURATION: 3000,
+    WHATSAPP_NUMBER: '917406839266'
+};
+
 // Utility Functions
 const createElement = (tag, options = {}) => {
     const element = document.createElement(tag);
     Object.assign(element, options);
     return element;
+};
+
+const saveToLocalStorage = (key, value) => {
+    try {
+        localStorage.setItem(key, value);
+    } catch (e) {
+        console.warn('LocalStorage is not available:', e);
+    }
+};
+
+const getFromLocalStorage = (key, defaultValue) => {
+    try {
+        const value = localStorage.getItem(key);
+        return value !== null ? value : defaultValue;
+    } catch (e) {
+        console.warn('LocalStorage is not available:', e);
+        return defaultValue;
+    }
 };
 
 // Animation Styles
@@ -31,6 +59,15 @@ const createAnimationStyles = () => {
             }
         }
 
+        @keyframes slideIn {
+            from {
+                transform: translateX(100%);
+            }
+            to {
+                transform: translateX(0);
+            }
+        }
+
         .toast-message {
             position: fixed;
             top: 20px;
@@ -44,25 +81,55 @@ const createAnimationStyles = () => {
             font-family: 'Montserrat', sans-serif;
             box-shadow: 0 4px 15px rgba(0,0,0,0.2);
         }
+
+        .settings-panel.active {
+            animation: slideIn 0.3s ease forwards;
+        }
     `;
     document.head.appendChild(style);
 };
 
-// Toast Notification
-const showToast = (message, duration = 3000) => {
-    const toast = createElement('div', {
-        className: 'toast-message',
-        textContent: message,
-        style: 'animation: fadeIn 0.3s ease'
-    });
+// Toast Notification System
+class ToastNotification {
+    constructor() {
+        this.queue = [];
+        this.isShowing = false;
+    }
 
-    document.body.appendChild(toast);
+    show(message, duration = CONSTANTS.TOAST_DURATION) {
+        this.queue.push({ message, duration });
+        if (!this.isShowing) {
+            this.showNext();
+        }
+    }
 
-    setTimeout(() => {
-        toast.style.animation = 'fadeOut 0.3s ease';
-        setTimeout(() => toast.remove(), 300);
-    }, duration);
-};
+    showNext() {
+        if (this.queue.length === 0) {
+            this.isShowing = false;
+            return;
+        }
+
+        this.isShowing = true;
+        const { message, duration } = this.queue.shift();
+        const toast = createElement('div', {
+            className: 'toast-message',
+            textContent: message,
+            style: 'animation: fadeIn 0.3s ease'
+        });
+
+        document.body.appendChild(toast);
+
+        setTimeout(() => {
+            toast.style.animation = 'fadeOut 0.3s ease';
+            setTimeout(() => {
+                toast.remove();
+                this.showNext();
+            }, CONSTANTS.ANIMATION_DURATION);
+        }, duration);
+    }
+}
+
+const toast = new ToastNotification();
 
 // WhatsApp Integration
 const initWhatsAppButtons = () => {
@@ -72,10 +139,10 @@ const initWhatsAppButtons = () => {
         button.addEventListener('click', () => {
             const productName = button.getAttribute('data-product');
             const message = encodeURIComponent(`I'm interested in the ${productName}`);
-            const whatsappURL = `https://wa.me/917406839266?text=${message}`;
+            const whatsappURL = `https://wa.me/${CONSTANTS.WHATSAPP_NUMBER}?text=${message}`;
             
             window.open(whatsappURL, '_blank');
-            showToast('Opening WhatsApp...');
+            toast.show('Opening WhatsApp...');
         });
     });
 };
@@ -94,6 +161,15 @@ const initSettingsPanel = () => {
         closeSettings.addEventListener('click', () => {
             settingsPanel.classList.remove('active');
         });
+
+        // Close panel when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!settingsPanel.contains(e.target) && 
+                !settingsToggle.contains(e.target) && 
+                settingsPanel.classList.contains('active')) {
+                settingsPanel.classList.remove('active');
+            }
+        });
     }
 };
 
@@ -101,54 +177,56 @@ const initSettingsPanel = () => {
 const initThemeManagement = () => {
     const themeButtons = document.querySelectorAll('.theme-btn');
     
+    const applyTheme = (theme) => {
+        document.documentElement.setAttribute('data-theme', theme);
+        saveToLocalStorage('theme', theme);
+        toast.show(`Theme changed to ${theme}`);
+    };
+
     themeButtons.forEach(button => {
         button.addEventListener('click', () => {
-            const theme = button.dataset.theme;
-            document.documentElement.setAttribute('data-theme', theme);
-            localStorage.setItem('theme', theme);
+            applyTheme(button.dataset.theme);
         });
     });
 
     // Load saved theme
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme) {
-        document.documentElement.setAttribute('data-theme', savedTheme);
-    }
+    const savedTheme = getFromLocalStorage('theme', 'light');
+    applyTheme(savedTheme);
 };
 
 // Text Size Management
 const initTextSizeControls = () => {
-    let currentSize = parseInt(localStorage.getItem('fontSize')) || 16;
+    let currentSize = parseInt(getFromLocalStorage('fontSize', CONSTANTS.DEFAULT_FONT_SIZE));
     const decreaseText = document.getElementById('decrease-text');
     const increaseText = document.getElementById('increase-text');
     const resetText = document.getElementById('reset-text');
 
     const updateFontSize = (size) => {
         document.documentElement.style.fontSize = `${size}px`;
-        localStorage.setItem('fontSize', size);
+        saveToLocalStorage('fontSize', size);
+        toast.show(`Font size: ${size}px`);
     };
 
     if (decreaseText && increaseText && resetText) {
         decreaseText.addEventListener('click', () => {
-            if (currentSize > 12) {
+            if (currentSize > CONSTANTS.MIN_FONT_SIZE) {
                 currentSize -= 2;
                 updateFontSize(currentSize);
             }
         });
 
         increaseText.addEventListener('click', () => {
-            if (currentSize < 24) {
+            if (currentSize < CONSTANTS.MAX_FONT_SIZE) {
                 currentSize += 2;
                 updateFontSize(currentSize);
             }
         });
 
         resetText.addEventListener('click', () => {
-            currentSize = 16;
+            currentSize = CONSTANTS.DEFAULT_FONT_SIZE;
             updateFontSize(currentSize);
         });
 
-        // Initialize with saved font size
         updateFontSize(currentSize);
     }
 };
@@ -173,27 +251,49 @@ const initProductGallery = () => {
 const initAnimationSpeed = () => {
     const speedSelect = document.getElementById('animation-speed');
     if (speedSelect) {
+        const updateAnimationSpeed = (speed) => {
+            document.documentElement.style.setProperty('--animation-speed', speed);
+            saveToLocalStorage('animationSpeed', speed);
+            toast.show(`Animation speed: ${speed === '0.3s' ? 'Fast' : speed === '0.9s' ? 'Slow' : 'Normal'}`);
+        };
+
         speedSelect.addEventListener('change', () => {
-            document.documentElement.style.setProperty('--animation-speed', speedSelect.value);
-            localStorage.setItem('animationSpeed', speedSelect.value);
+            updateAnimationSpeed(speedSelect.value);
         });
 
         // Load saved animation speed
-        const savedSpeed = localStorage.getItem('animationSpeed');
-        if (savedSpeed) {
-            speedSelect.value = savedSpeed;
-            document.documentElement.style.setProperty('--animation-speed', savedSpeed);
-        }
+        const savedSpeed = getFromLocalStorage('animationSpeed', '0.6s');
+        speedSelect.value = savedSpeed;
+        updateAnimationSpeed(savedSpeed);
     }
+};
+
+// Error Handling
+const handleError = (error) => {
+    console.error('An error occurred:', error);
+    toast.show('Something went wrong. Please try again.', 5000);
 };
 
 // Initialize Everything
 document.addEventListener('DOMContentLoaded', () => {
-    createAnimationStyles();
-    initWhatsAppButtons();
-    initSettingsPanel();
-    initThemeManagement();
-    initTextSizeControls();
-    initProductGallery();
-    initAnimationSpeed();
+    try {
+        createAnimationStyles();
+        initWhatsAppButtons();
+        initSettingsPanel();
+        initThemeManagement();
+        initTextSizeControls();
+        initProductGallery();
+        initAnimationSpeed();
+    } catch (error) {
+        handleError(error);
+    }
+});
+
+// Add loading state for images
+document.querySelectorAll('img').forEach(img => {
+    img.addEventListener('load', () => img.classList.add('loaded'));
+    img.addEventListener('error', () => {
+        img.src = 'placeholder.jpg'; // Add a placeholder image
+        handleError(new Error(`Failed to load image: ${img.src}`));
+    });
 });
