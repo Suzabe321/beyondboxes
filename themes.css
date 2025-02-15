@@ -1,0 +1,24 @@
+/* Theme variables */
+:root[data-theme="light"] {
+    --primary-color: #4B3832;
+    --accent-color: #722F37;
+    --background-color: #F8F3F1;
+    --text-color: #4B3832;
+    --background-light: #fff;
+}
+
+:root[data-theme="dark"] {
+    --primary-color: #E6CBA8;
+    --accent-color: #722F37;
+    --background-color: #1B1F3B;
+    --text-color: #F8F3F1;
+    --background-light: #2A2F4A;
+}
+
+:root[data-theme="royal"] {
+    --primary-color: #E6CBA8;
+    --accent-color: #3A6351;
+    --background-color: #1B1F3B;
+    --text-color: #E6CBA8;
+    --background-light: #2A2F4A;
+}
