@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Festival Celebration Box - Beyond Boxes</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../product-detail.css">
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <a href="../index.html" class="back-btn"><i class="fas fa-arrow-left"></i> Back to Home</a>
+            <h1>Festival Celebration Box</h1>
+            <p>Celebrate festivals with joy and tradition</p>
+        </div>
+    </header>
+
+    <div class="container product-detail">
+        <div class="product-gallery">
+            <div class="main-image">
+                <img src="../images/festival-box.jpg" alt="Festival Celebration Box">
+            </div>
+            <div class="thumbnail-gallery">
+                <img src="../images/festival-1.jpg" alt="Festival Box Detail 1" onclick="changeImage(this)">
+                <img src="../images/festival-2.jpg" alt="Festival Box Detail 2" onclick="changeImage(this)">
+                <img src="../images/festival-3.jpg" alt="Festival Box Detail 3" onclick="changeImage(this)">
+            </div>
+        </div>
+
+        <div class="product-info">
+            <div class="price-tag">₹1,299</div>
+            <div class="product-description">
+                <h2>Description</h2>
+                <p>Our Festival Celebration Box brings together traditional elements and modern luxury to create the perfect festive gift. Ideal for all Indian festivals and celebrations.</p>
+                
+                <h3>What's Inside</h3>
+                <ul class="product-features-list">
+                    <li><i class="fas fa-dice"></i> Traditional Items</li>
+                    <li><i class="fas fa-candy-cane"></i> Festival Sweets</li>
+                    <li><i class="fas fa-fire"></i> Decorative Items</li>
+                    <li><i class="fas fa-lamp"></i> Festival Lights</li>
+                    <li><i class="fas fa-gift"></i> Surprise Elements</li>
+                </ul>
+
+                <h3>Additional Information</h3>
+                <div class="product-specs">
+                    <div class="spec-item">
+                        <i class="fas fa-box"></i>
+                        <span>Box Size</span>
+                        <p>30cm x 25cm x 15cm</p>
+                    </div>
+                    <div class="spec-item">
+                        <i class="fas fa-clock"></i>
+                        <span>Delivery Time</span>
+                        <p>24 Hours</p>
+                    </div>
+                    <div class="spec-item">
+                        <i class="fas fa-users"></i>
+                        <span>Bulk Orders</span>
+                        <p>Available</p>
+                    </div>
+                </div>
+            </div>
+
+            <button class="order-btn" data-product="Festival Celebration Box">
+                <i class="fas fa-shopping-cart"></i> Order Now - ₹1,299
+            </button>
+        </div>
+    </div>
+
+    <script src="../script.js"></script>
+</body>
+</html>
