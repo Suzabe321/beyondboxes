@@ -66,3 +66,79 @@ document.addEventListener('DOMContentLoaded', function() {
     `;
     document.head.appendChild(style);
 });
+// Add to your existing script.js
+
+// Settings Panel
+const settingsToggle = document.querySelector('.settings-toggle');
+const settingsPanel = document.querySelector('.settings-panel');
+const closeSettings = document.querySelector('.close-settings');
+
+settingsToggle.addEventListener('click', () => {
+    settingsPanel.classList.add('active');
+});
+
+closeSettings.addEventListener('click', () => {
+    settingsPanel.classList.remove('active');
+});
+
+// Theme Switching
+const themeButtons = document.querySelectorAll('.theme-btn');
+themeButtons.forEach(button => {
+    button.addEventListener('click', () => {
+        document.documentElement.setAttribute('data-theme', button.dataset.theme);
+        localStorage.setItem('theme', button.dataset.theme);
+    });
+});
+
+// Text Size
+let currentSize = 16;
+const decreaseText = document.getElementById('decrease-text');
+const increaseText = document.getElementById('increase-text');
+const resetText = document.getElementById('reset-text');
+
+decreaseText.addEventListener('click', () => {
+    if (currentSize > 12) {
+        currentSize -= 2;
+        document.documentElement.style.fontSize = currentSize + 'px';
+    }
+});
+
+increaseText.addEventListener('click', () => {
+    if (currentSize < 24) {
+        currentSize += 2;
+        document.documentElement.style.fontSize = currentSize + 'px';
+    }
+});
+
+resetText.addEventListener('click', () => {
+    currentSize = 16;
+    document.documentElement.style.fontSize = currentSize + 'px';
+});
+
+// Animation Speed
+const speedSelect = document.getElementById('animation-speed');
+speedSelect.addEventListener('change', () => {
+    document.documentElement.style.setProperty('--animation-speed', speedSelect.value);
+});
+
+// Product Gallery
+const thumbnails = document.querySelectorAll('.thumbnail-gallery img');
+const mainImage = document.querySelector('.main-image img');
+
+if (thumbnails.length > 0) {
+    thumbnails.forEach(thumb => {
+        thumb.addEventListener('click', () => {
+            mainImage.src = thumb.src;
+            thumbnails.forEach(t => t.classList.remove('active'));
+            thumb.classList.add('active');
+        });
+    });
+}
+
+// Load saved preferences
+document.addEventListener('DOMContentLoaded', () => {
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme) {
+        document.documentElement.setAttribute('data-theme', savedTheme);
+    }
+});
