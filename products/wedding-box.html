@@ -1,18 +1,9 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Luxury Wedding Gift Box - Premium curated gifts for newlyweds">
     <title>Luxury Wedding Box - Beyond Boxes</title>
-    
-    <!-- Preload critical resources -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap">
-    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&display=swap">
-    
-    <!-- Stylesheets -->
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -20,151 +11,62 @@
     <link rel="stylesheet" href="../product-detail.css">
 </head>
 <body>
-    <!-- Loading Indicator -->
-    <div id="loading-indicator" class="loading-indicator">
-        <div class="spinner"></div>
-        <p>Loading...</p>
-    </div>
-
     <header>
         <div class="header-content">
-            <a href="../index.html" class="back-btn">
-                <i class="fas fa-arrow-left"></i> 
-                <span>Back to Home</span>
-            </a>
+            <a href="../index.html" class="back-btn"><i class="fas fa-arrow-left"></i> Back to Home</a>
             <h1>Luxury Wedding Box</h1>
             <p>Elegant gifts for the perfect wedding</p>
         </div>
     </header>
-
-    <main class="container product-detail">
+    <div class="container product-detail">
         <div class="product-gallery">
             <div class="main-image">
-                <img src="../images/wedding-box.jpg" alt="Luxury Wedding Box" id="main-product-image">
-                <div class="image-overlay"></div>
+                <img src="../images/wedding-box.jpg" alt="Luxury Wedding Box">
             </div>
-            <div class="thumbnail-gallery" id="thumbnail-gallery">
-                <img src="../images/wedding-1.jpg" alt="Wedding Box Detail 1" class="thumbnail" loading="lazy">
-                <img src="../images/wedding-2.jpg" alt="Wedding Box Detail 2" class="thumbnail" loading="lazy">
-                <img src="../images/wedding-3.jpg" alt="Wedding Box Detail 3" class="thumbnail" loading="lazy">
+            <div class="thumbnail-gallery">
+                <img src="../images/wedding-1.jpg" alt="Wedding Box Detail 1" onclick="changeImage(this)">
+                <img src="../images/wedding-2.jpg" alt="Wedding Box Detail 2" onclick="changeImage(this)">
+                <img src="../images/wedding-3.jpg" alt="Wedding Box Detail 3" onclick="changeImage(this)">
             </div>
         </div>
-
         <div class="product-info">
-            <div class="price-badge">
-                <div class="price-tag">₹2,499</div>
-                <span class="discount-badge">Special Offer</span>
-            </div>
-
+            <div class="price-tag">₹2,499</div>
             <div class="product-description">
                 <h2>Description</h2>
                 <p>Our Luxury Wedding Box is the perfect gift for newlyweds. Each box is carefully curated with premium items to celebrate their new journey together.</p>
                 
-                <section class="features-section">
-                    <h3>What's Inside</h3>
-                    <ul class="product-features-list">
-                        <li>
-                            <i class="fas fa-ring"></i>
-                            <span>Premium Wedding Essentials</span>
-                        </li>
-                        <li>
-                            <i class="fas fa-gem"></i>
-                            <span>Luxury Couple Items</span>
-                        </li>
-                        <li>
-                            <i class="fas fa-home"></i>
-                            <span>Home Decor Pieces</span>
-                        </li>
-                        <li>
-                            <i class="fas fa-gift"></i>
-                            <span>Personalized Gifts</span>
-                        </li>
-                        <li>
-                            <i class="fas fa-crown"></i>
-                            <span>Royal Packaging</span>
-                        </li>
-                    </ul>
-                </section>
-
-                <section class="specifications-section">
-                    <h3>Additional Information</h3>
-                    <div class="product-specs">
-                        <div class="spec-item">
-                            <i class="fas fa-box"></i>
-                            <span>Box Size</span>
-                            <p>40cm x 30cm x 20cm</p>
-                        </div>
-                        <div class="spec-item">
-                            <i class="fas fa-clock"></i>
-                            <span>Delivery Time</span>
-                            <p>48 Hours</p>
-                        </div>
-                        <div class="spec-item">
-                            <i class="fas fa-palette"></i>
-                            <span>Customization</span>
-                            <p>Available</p>
-                        </div>
+                <h3>What's Inside</h3>
+                <ul class="product-features-list">
+                    <li><i class="fas fa-ring"></i> Premium Wedding Essentials</li>
+                    <li><i class="fas fa-gem"></i> Luxury Couple Items</li>
+                    <li><i class="fas fa-home"></i> Home Decor Pieces</li>
+                    <li><i class="fas fa-gift"></i> Personalized Gifts</li>
+                    <li><i class="fas fa-crown"></i> Royal Packaging</li>
+                </ul>
+                <h3>Additional Information</h3>
+                <div class="product-specs">
+                    <div class="spec-item">
+                        <i class="fas fa-box"></i>
+                        <span>Box Size</span>
+                        <p>40cm x 30cm x 20cm</p>
                     </div>
-                </section>
+                    <div class="spec-item">
+                        <i class="fas fa-clock"></i>
+                        <span>Delivery Time</span>
+                        <p>48 Hours</p>
+                    </div>
+                    <div class="spec-item">
+                        <i class="fas fa-palette"></i>
+                        <span>Customization</span>
+                        <p>Available</p>
+                    </div>
+                </div>
             </div>
-
-            <div class="action-section">
-                <button class="order-btn" data-product="Luxury Wedding Box">
-                    <i class="fas fa-shopping-cart"></i>
-                    <span>Order Now - ₹2,499</span>
-                </button>
-                <p class="delivery-note">
-                    <i class="fas fa-truck"></i>
-                    Free Delivery on this item
-                </p>
-            </div>
+            <button class="order-btn" data-product="Luxury Wedding Box">
+                <i class="fas fa-shopping-cart"></i> Order Now - ₹2,499
+            </button>
         </div>
-    </main>
-
-    <!-- Toast Container -->
-    <div id="toast-container" class="toast-container"></div>
-
-    <script>
-        // Image gallery functionality
-        document.addEventListener('DOMContentLoaded', function() {
-            const mainImage = document.getElementById('main-product-image');
-            const thumbnails = document.querySelectorAll('.thumbnail');
-            const loadingIndicator = document.getElementById('loading-indicator');
-
-            // Handle image loading
-            function handleImageLoad() {
-                loadingIndicator.classList.add('hidden');
-            }
-
-            // Handle image loading errors
-            function handleImageError(img) {
-                img.src = '../images/placeholder.jpg';
-                loadingIndicator.classList.add('hidden');
-            }
-
-            // Change main image when clicking thumbnails
-            thumbnails.forEach(thumbnail => {
-                thumbnail.addEventListener('click', function() {
-                    mainImage.src = this.src;
-                    thumbnails.forEach(t => t.classList.remove('active'));
-                    this.classList.add('active');
-                });
-
-                // Load handling
-                thumbnail.addEventListener('load', handleImageLoad);
-                thumbnail.addEventListener('error', () => handleImageError(thumbnail));
-            });
-
-            // Main image load handling
-            mainImage.addEventListener('load', handleImageLoad);
-            mainImage.addEventListener('error', () => handleImageError(mainImage));
-
-            // Remove loading indicator when everything is loaded
-            window.addEventListener('load', () => {
-                loadingIndicator.classList.add('hidden');
-            });
-        });
-    </script>
+    </div>
     <script src="../script.js"></script>
 </body>
 </html>
