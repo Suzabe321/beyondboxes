@@ -1,324 +1,353 @@
+/* =====================================
+   CSS Variables & Global Styles
+===================================== */
 :root {
-    --color-primary: #4B3832;    /* Deep Mocha */
-    --color-gold: #E6CBA8;       /* Champagne Gold */
-    --color-burgundy: #722F37;   /* Velvet Burgundy */
-    --color-midnight: #1B1F3B;   /* Midnight Blue */
-    --color-emerald: #3A6351;    /* Muted Emerald */
-    --color-pearl: #F8F3F1;      /* Pearl White */
-    --box-shadow: 0 5px 15px rgba(75, 56, 50, 0.1);
-    --transition-default: all 0.3s ease;
+  --color-primary: #4B3832;       /* Deep Mocha */
+  --color-gold: #E6CBA8;          /* Champagne Gold */
+  --color-burgundy: #722F37;      /* Velvet Burgundy */
+  --color-midnight: #a14189;      /* Updated to new color (#a14189) */
+  --color-emerald: #3A6351;       /* Muted Emerald */
+  --color-pearl: #F8F3F1;         /* Pearl White */
+  --box-shadow: 0 5px 15px rgba(75, 56, 50, 0.1);
+  --transition-default: all 0.3s ease;
+  --border-radius: 10px;
 }
 
-/* Reset & Base Styles */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+/* =====================================
+   Reset & Base Styles
+===================================== */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-    font-family: 'Montserrat', sans-serif;
-    background-color: var(--color-pearl);
-    color: var(--color-primary);
-    line-height: 1.6;
+  font-family: 'Montserrat', sans-serif;
+  background-color: var(--color-pearl);
+  color: var(--color-primary);
+  line-height: 1.6;
 }
 
-/* Header Styles */
+/* =====================================
+   Header Styles
+===================================== */
 header {
-    background-color: var(--color-midnight);
-    padding: 40px 20px;
-    text-align: center;
-    box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+  background-color: var(--color-midnight);
+  padding: 40px 20px;
+  text-align: center;
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
 }
 
 header h1 {
-    font-family: 'Playfair Display', serif;
-    color: var(--color-gold);
-    font-size: 3em;
-    letter-spacing: 2px;
-    margin-bottom: 15px;
+  font-family: 'Playfair Display', serif;
+  color: var(--color-gold);
+  font-size: 3em;
+  letter-spacing: 2px;
+  margin-bottom: 15px;
 }
 
 .header-divider {
-    width: 100px;
-    height: 2px;
-    background-color: var(--color-gold);
-    margin: 15px auto;
+  width: 100px;
+  height: 2px;
+  background-color: var(--color-gold);
+  margin: 15px auto;
 }
 
 header p {
-    color: var(--color-pearl);
-    font-size: 1.2em;
-    font-weight: 300;
+  color: var(--color-pearl);
+  font-size: 1.2em;
+  font-weight: 300;
 }
 
-/* Container */
+/* =====================================
+   Container
+===================================== */
 .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 40px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
 }
 
-/* Product Grid */
+/* =====================================
+   Product Grid & Cards
+===================================== */
 .products {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-    margin-top: 40px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  margin-top: 40px;
 }
 
-/* Product Card */
 .product-card {
-    background-color: white;
-    border-radius: 10px;
-    overflow: hidden;
-    position: relative;
-    transition: var(--transition-default);
-    box-shadow: var(--box-shadow);
+  background-color: #fff;
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  position: relative;
+  transition: var(--transition-default);
+  box-shadow: var(--box-shadow);
 }
 
 .product-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 10px 25px rgba(75, 56, 50, 0.2);
+  transform: translateY(-10px);
+  box-shadow: 0 10px 25px rgba(75, 56, 50, 0.2);
 }
 
 .image-container {
-    position: relative;
-    overflow: hidden;
-    padding-top: 75%;
+  position: relative;
+  overflow: hidden;
+  padding-top: 75%;  /* Maintain aspect ratio */
 }
 
 .image-container img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: var(--transition-default);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: var(--transition-default);
 }
 
 .product-card:hover .image-container img {
-    transform: scale(1.05);
+  transform: scale(1.05);
 }
 
 .product-card h3 {
-    font-family: 'Playfair Display', serif;
-    color: var(--color-primary);
-    padding: 20px 20px 10px;
-    font-size: 1.4em;
+  font-family: 'Playfair Display', serif;
+  color: var(--color-primary);
+  padding: 20px;
+  font-size: 1.4em;
 }
 
 .product-card p {
-    padding: 0 20px;
-    color: #666;
+  padding: 0 20px;
+  color: #666;
 }
 
 .price {
-    font-weight: 600;
-    color: var(--color-burgundy);
-    font-size: 1.2em;
-    padding: 15px 20px;
+  font-weight: 600;
+  color: var(--color-burgundy);
+  font-size: 1.2em;
+  padding: 15px 20px;
 }
 
-/* Buttons */
+/* =====================================
+   Buttons
+===================================== */
 .order-btn {
-    background-color: var(--color-emerald);
-    color: white;
-    width: calc(100% - 40px);
-    margin: 10px 20px 20px;
-    padding: 12px 0;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 1em;
-    font-weight: 500;
-    transition: var(--transition-default);
+  background-color: var(--color-emerald);
+  color: #fff;
+  width: calc(100% - 40px);
+  margin: 10px 20px 20px;
+  padding: 12px 0;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1em;
+  font-weight: 500;
+  transition: var(--transition-default);
 }
 
 .order-btn:hover {
-    background-color: var(--color-burgundy);
+  background-color: var(--color-burgundy);
 }
 
-/* Contact Section */
+/* =====================================
+   Contact Section
+===================================== */
 .contact-info {
-    margin-top: 60px;
-    padding: 40px;
-    background-color: var(--color-midnight);
-    border-radius: 10px;
-    text-align: center;
-    box-shadow: 0 5px 15px rgba(27, 31, 59, 0.2);
+  margin-top: 60px;
+  padding: 40px;
+  background-color: var(--color-midnight);
+  border-radius: var(--border-radius);
+  text-align: center;
+  box-shadow: 0 5px 15px rgba(27, 31, 59, 0.2);
 }
 
 .contact-info h2 {
-    font-family: 'Playfair Display', serif;
-    color: var(--color-gold);
-    font-size: 2em;
-    margin-bottom: 10px;
+  font-family: 'Playfair Display', serif;
+  color: var(--color-gold);
+  font-size: 2em;
+  margin-bottom: 10px;
 }
 
 .contact-divider {
-    width: 80px;
-    height: 2px;
-    background-color: var(--color-gold);
-    margin: 20px auto;
+  width: 80px;
+  height: 2px;
+  background-color: var(--color-gold);
+  margin: 20px auto;
 }
 
 .contact-links {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 20px;
 }
 
 .contact-links p {
-    color: var(--color-pearl);
-    font-size: 1.1em;
+  color: var(--color-pearl);
+  font-size: 1.1em;
 }
 
 .contact-icon {
-    margin-right: 10px;
+  margin-right: 10px;
 }
 
 .contact-info a {
-    color: var(--color-gold);
-    text-decoration: none;
-    transition: var(--transition-default);
+  color: var(--color-gold);
+  text-decoration: none;
+  transition: var(--transition-default);
 }
 
 .contact-info a:hover {
-    color: var(--color-emerald);
+  color: var(--color-emerald);
 }
 
-/* Settings Panel */
+/* =====================================
+   Settings Panel
+===================================== */
 .settings-toggle {
-    position: fixed;
-    right: 20px;
-    top: 20px;
-    background: var(--color-primary);
-    color: white;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    z-index: 1000;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+  position: fixed;
+  right: 20px;
+  top: 20px;
+  background: var(--color-primary);
+  color: #fff;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 1000;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
 }
 
 .settings-toggle i {
-    animation: spin 4s linear infinite;
+  animation: spin 4s linear infinite;
 }
 
 .settings-panel {
-    position: fixed;
-    right: -300px;
-    top: 0;
-    width: 300px;
-    height: 100%;
-    background: white;
-    box-shadow: -2px 0 10px rgba(0,0,0,0.1);
-    z-index: 999;
-    transition: right 0.3s ease;
-    padding: 20px;
+  position: fixed;
+  right: -300px;
+  top: 0;
+  width: 300px;
+  height: 100%;
+  background: #fff;
+  box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+  z-index: 999;
+  transition: right 0.3s ease;
+  padding: 20px;
 }
 
 .settings-panel.active {
-    right: 0;
+  right: 0;
 }
 
 .settings-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
 }
 
-/* Settings Controls */
 .setting-group {
-    margin-bottom: 20px;
+  margin-bottom: 20px;
 }
 
 .theme-options {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 10px;
-    margin-top: 10px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-top: 10px;
 }
 
-.theme-btn, 
+.theme-btn,
 .text-size-controls button {
-    padding: 8px 15px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: var(--transition-default);
+  padding: 8px 15px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: var(--transition-default);
 }
 
 .theme-btn:hover,
 .text-size-controls button:hover {
-    background-color: var(--color-pearl);
+  background-color: var(--color-pearl);
 }
 
 .text-size-controls {
-    display: flex;
-    gap: 10px;
-    margin-top: 10px;
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
 }
 
-/* Product Overlay */
+/* =====================================
+   Product Overlay
+===================================== */
 .product-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0,0,0,0.5);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    opacity: 0;
-    transition: var(--transition-default);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: var(--transition-default);
 }
 
 .product-card:hover .product-overlay {
-    opacity: 1;
+  opacity: 1;
 }
 
 .read-more-btn {
-    background: white;
-    color: var(--color-primary);
-    padding: 10px 20px;
-    border-radius: 5px;
-    text-decoration: none;
-    display: flex;
-    align-items: center;
-    gap: 10px;
+  background: #fff;
+  color: var(--color-primary);
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
-/* Animations */
+/* =====================================
+   Animations
+===================================== */
 @keyframes spin {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
-/* Media Queries */
+/* =====================================
+   Responsive Styles
+===================================== */
 @media (max-width: 768px) {
-    header h1 {
-        font-size: 2.5em;
-    }
+  header h1 {
+    font-size: 2.5em;
+  }
 
-    .products {
-        grid-template-columns: 1fr;
-    }
+  .products {
+    grid-template-columns: 1fr;
+  }
 
-    .product-card {
-        margin: 0 10px;
-    }
+  .product-card {
+    margin: 0 10px;
+  }
 
-    .contact-info {
-        margin: 40px 10px 0;
-        padding: 30px 20px;
-    }
+  .contact-info {
+    margin: 40px 10px 0;
+    padding: 30px 20px;
+  }
 }
